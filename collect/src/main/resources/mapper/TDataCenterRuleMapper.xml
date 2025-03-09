@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.carl.infra.repository.mapper.TDataCenterRuleMapper">
+
+    <resultMap id="BaseResultMap" type="com.carl.infra.repository.entity.TDataCenterRule">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="businessId" column="business_id" jdbcType="VARCHAR"/>
+            <result property="businessName" column="business_name" jdbcType="VARCHAR"/>
+            <result property="enName" column="en_name" jdbcType="VARCHAR"/>
+            <result property="ruleName" column="rule_name" jdbcType="VARCHAR"/>
+            <result property="ruleType" column="rule_type" jdbcType="VARCHAR"/>
+            <result property="version" column="version" jdbcType="VARCHAR"/>
+            <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+            <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,business_id,business_name,
+        en_name,rule_name,rule_type,
+        version,gmt_create,gmt_modified,
+        status
+    </sql>
+</mapper>

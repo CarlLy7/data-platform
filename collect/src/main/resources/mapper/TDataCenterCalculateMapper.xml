@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.carl.infra.repository.mapper.TDataCenterCalculateMapper">
+
+    <resultMap id="BaseResultMap" type="com.carl.infra.repository.entity.TDataCenterCalculate">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="ruleId" column="rule_id" jdbcType="BIGINT"/>
+        <result property="enName" column="en_name" jdbcType="VARCHAR"/>
+        <result property="parameters" column="parameters" jdbcType="VARCHAR"/>
+        <result property="func" column="func" jdbcType="VARCHAR"/>
+        <result property="expression" column="expression" jdbcType="VARCHAR"/>
+        <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+        <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+        <result property="status" column="status" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        ,rule_id,en_name,
+        parameters,func,expression,
+        gmt_create,gmt_modified,status
+    </sql>
+</mapper>
