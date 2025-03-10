@@ -108,12 +108,6 @@ public class Metadata implements Serializable {
      */
     private Integer baseValue;
 
-
-    /**
-     * 状态 1：未删除 0：删除
-     */
-    private Integer status;
-
     public Object getDefaultValue() {
         Object result = null;
         if (Objects.isNull(dataType)) {

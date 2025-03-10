@@ -1,11 +1,14 @@
 package com.carl.business.domain;
 
+import com.carl.business.constants.SymbolConstants;
 import com.carl.collect.DimensionEnum;
+import com.carl.collect.PeriodEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -73,8 +76,46 @@ public class Storage implements Serializable {
         return storage;
     }
 
-    private String doGetTableName(String ruleEnName, DimensionEnum dimensionEnum){
-        return "";
+    public String getTableName(String ruleCnName, DimensionEnum dimensionEnum, PeriodEnum periodEnum) {
+        return getDefaultTableName(ruleCnName, dimensionEnum, periodEnum);
+    }
+
+    public String getTableName(String ruleCnName, DimensionEnum dimensionEnum, String suffix) {
+        return new StringBuilder(DEFAULT_TABLE_PREFIX)
+                .append(SymbolConstants.UNDERLINE)
+                .append(ruleCnName)
+                .append(SymbolConstants.UNDERLINE)
+                .append(dimensionEnum.getValue().toLowerCase())
+                .append(suffix)
+                .toString();
+    }
+
+    /**
+     * 获取默认的表名
+     *
+     * @param ruleCnName
+     * @param dimensionEnum
+     * @param periodEnum
+     * @return
+     */
+    public static String getDefaultTableName(String ruleCnName, DimensionEnum dimensionEnum, PeriodEnum periodEnum) {
+        return doGetTableName(ruleCnName, dimensionEnum, periodEnum, DEFAULT_TABLE_PREFIX);
+    }
+
+    /**
+     * 获取表名字
+     *
+     * @param ruleEnName
+     * @param dimensionEnum
+     * @param periodEnum
+     * @param tablePrefix
+     * @return
+     */
+    private static String doGetTableName(String ruleEnName, DimensionEnum dimensionEnum, PeriodEnum periodEnum, String tablePrefix) {
+        String suffix = (Objects.equals(periodEnum, PeriodEnum.DAY) || Objects.equals(periodEnum, PeriodEnum.CUSTOM)) ? DEFAULT_DAY_SUFFIX : DEFAULT_NOT_DAY_SUFFIX;
+        StringBuilder tableName = new StringBuilder();
+        tableName.append(tablePrefix).append(SymbolConstants.UNDERLINE).append(ruleEnName).append(SymbolConstants.UNDERLINE).append(dimensionEnum.getValue().toLowerCase()).append(suffix);
+        return tableName.toString();
     }
 
 }

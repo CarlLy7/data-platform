@@ -40,10 +40,4 @@ public class Organ implements Serializable {
      */
     private String dataSource;
 
-
-    /**
-     * 状态 1：未删除 0：删除
-     */
-    private Integer status;
-
 }

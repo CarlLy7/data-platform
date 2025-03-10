@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 数据计算domain
@@ -32,7 +33,7 @@ public class Calculate implements Serializable {
     /**
      * 指标计算时的参数，可以指定多个指标，中间用逗号隔开
      */
-    private String parameters;
+    private List<String> parameters;
 
     /**
      * 函数，有几个内置函数：1：sum相加 2：deduction相减 3:multiplty相乘 4:ratio相除 5：avg求平均数
@@ -44,11 +45,5 @@ public class Calculate implements Serializable {
      * 计算表达式
      */
     private String expression;
-
-
-    /**
-     * 状态 1：未删除 0：删除
-     */
-    private Integer status;
 
 }

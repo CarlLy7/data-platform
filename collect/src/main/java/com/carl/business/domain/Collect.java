@@ -1,4 +1,5 @@
-package com.carl.business.domain;/**
+package com.carl.business.domain;
+/**
  * @description:
  * @author: carl
  * @createDate: 2025-03-09 20:46
@@ -63,8 +64,4 @@ public class Collect implements Serializable {
      */
     private String periodFormat;
 
-    /**
-     * 状态 1：未删除 0：删除
-     */
-    private Integer status;
 }

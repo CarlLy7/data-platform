@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 数据规则domain
@@ -15,6 +16,32 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Rule implements Serializable {
+
+    /**
+     * 数据计算
+     */
+    private List<Calculate> calculates;
+
+    /**
+     * 数据组织
+     */
+    private List<Organ> organs;
+
+    /**
+     * 数据采集
+     */
+    private List<Collect> collects;
+
+    /**
+     * 元数据
+     */
+    private List<Metadata> metadata;
+
+    /**
+     * 数据存储
+     */
+    private Storage storage;
+
     /**
      * 主键
      */
@@ -51,12 +78,4 @@ public class Rule implements Serializable {
      */
     private String version;
 
-    /**
-     * 创建时间
-     */
-
-    /**
-     * 状态 1：未删除 0：删除
-     */
-    private Integer status;
 }
