@@ -13,6 +13,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 /**
  * @description:
  * @author: carl
@@ -25,7 +27,9 @@ public interface CalculateConvert {
 
     Calculate tDataCenterCalculateToCalculate(TDataCenterCalculate tDataCenterCalculate);
 
-    @Mapping(source = "func",target = "func",qualifiedByName = "functionEnumTofuncName")
+    List<Calculate> tDataCenterCalculatesToCalculates(List<TDataCenterCalculate> tDataCenterCalculates);
+
+    @Mapping(source = "func",target = "func",qualifiedByName = "functionEnumTofuncName(com.carl.business.domain.Calculate.func)")
     TDataCenterCalculate calculateToTDataCenterCalculate(Calculate calculate);
 
     @Named("functionEnumTofuncName")

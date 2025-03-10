@@ -5,6 +5,9 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -13,6 +16,9 @@ import java.time.LocalDateTime;
  * 数据规则
  * @TableName t_data_center_rule
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @TableName(value ="t_data_center_rule")
 public class TDataCenterRule implements Serializable {
     /**
@@ -24,6 +30,7 @@ public class TDataCenterRule implements Serializable {
     /**
      * 业务id,为了兼容不同的主键规则，设计为varchar类型
      */
+    @TableField("business_id")
     private String businessId;
 
     /**

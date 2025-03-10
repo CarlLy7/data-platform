@@ -6,6 +6,8 @@ package com.carl.infra;/**
  */
 
 import com.carl.CollectApplication;
+import com.carl.business.domain.Rule;
+import com.carl.business.service.RuleService;
 import com.carl.infra.repository.entity.TDataCenterRule;
 import com.carl.infra.repository.service.TDataCenterRuleService;
 import org.junit.jupiter.api.Test;
@@ -28,6 +30,9 @@ public class RuleTest {
     @Autowired
     private TDataCenterRuleService tDataCenterRuleService;
 
+    @Autowired
+    private RuleService ruleService;
+
     @Test
     public void testSave(){
         TDataCenterRule dataCenterRule = new TDataCenterRule();
@@ -45,6 +50,15 @@ public class RuleTest {
         for (TDataCenterRule tDataCenterRule : list) {
             System.out.println(tDataCenterRule);
         }
+    }
+
+    /**
+     * 测试根据业务id和业务规则类型查询最新的规则
+     */
+    @Test
+    public void assembleRule(){
+        Rule rule = ruleService.getRule("2", "1");
+        System.out.println(rule);
     }
 
 }

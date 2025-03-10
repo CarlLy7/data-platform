@@ -13,6 +13,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 /**
  * @description:
  * @author: carl
@@ -22,8 +24,11 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface OrganConvert {
     OrganConvert INSTANCE= Mappers.getMapper(OrganConvert.class);
-
+    @Mapping(source = "collectWay",target = "collectWay",qualifiedByName = "parseCollectWayEnumByValue")
     Organ tDataCenterOrganToOrgan(TDataCenterOrgan tDataCenterOrgan);
+
+    @Mapping(source = "collectWay",target = "collectWay",qualifiedByName = "parseCollectWayEnumByValue")
+    List<Organ> tDataCenterOrgansToOrgans(List<TDataCenterOrgan> tDataCenterOrgans);
 
     @Mapping(source = "collectWay",target = "collectWay",qualifiedByName = "collectWayEnumToValue")
     TDataCenterOrgan organToTDataCenterOrgan(Organ organ);
@@ -31,5 +36,10 @@ public interface OrganConvert {
     @Named("collectWayEnumToValue")
     default Integer collectWayEnumToValue(CollectWayEnum collectWayEnum){
         return collectWayEnum.getValue();
+    }
+
+    @Named("parseCollectWayEnumByValue")
+    default CollectWayEnum parseCollectWayEnumByValue(Integer value){
+        return CollectWayEnum.parse(value);
     }
 }
