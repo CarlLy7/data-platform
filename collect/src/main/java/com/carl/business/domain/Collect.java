@@ -1,10 +1,4 @@
 package com.carl.business.domain;
-/**
- * @description:
- * @author: carl
- * @createDate: 2025-03-09 20:46
- * @version: 1.0
- */
 
 import com.carl.collect.CollectWayEnum;
 import lombok.AllArgsConstructor;

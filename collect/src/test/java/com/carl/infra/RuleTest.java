@@ -57,7 +57,7 @@ public class RuleTest {
      */
     @Test
     public void assembleRule(){
-        Rule rule = ruleService.getRule("2", "1");
+        Rule rule = ruleService.getRule("1", "1");
         System.out.println(rule);
     }
 

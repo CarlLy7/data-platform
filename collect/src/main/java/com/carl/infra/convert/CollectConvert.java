@@ -20,6 +20,7 @@ import java.util.List;
 public interface CollectConvert {
     CollectConvert INSTANCE= Mappers.getMapper(CollectConvert.class);
 
+    @Mapping(source = "collectWay",target = "collectWay",qualifiedByName = "parseCollectWayEnumByValue")
     Collect tDataCenterCollectToCollect(TDataCenterCollect tDataCenterCollect);
 
     List<Collect> tDataCenterCollectsToCollects(List<TDataCenterCollect> tDataCenterCollects);
@@ -31,5 +32,10 @@ public interface CollectConvert {
     @Named("collectWayEnumToValue")
     default Integer collectWayEnumToValue(CollectWayEnum collectWayEnum){
         return collectWayEnum.getValue();
+    }
+
+    @Named("parseCollectWayEnumByValue")
+    default CollectWayEnum parseCollectWayEnumByValue(Integer value){
+        return CollectWayEnum.parse(value);
     }
 }

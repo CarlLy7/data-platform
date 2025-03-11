@@ -21,16 +21,14 @@ import java.util.List;
 public interface MetaDataConvert {
     MetaDataConvert INSTANCE= Mappers.getMapper(MetaDataConvert.class);
 
-    @Mapping(source = "dataType",target = "dataType",qualifiedByName = "getDateType(com.carl.business.domain.Metadata.dataType)")
-    @Mapping(source = "sourceType",target = "sourceType",qualifiedByName = "getSourceType(com.carl.business.domain.Metadata.sourceType)")
+    @Mapping(source = "dataType",target = "dataType",qualifiedByName = "getDateType")
+    @Mapping(source = "sourceType",target = "sourceType",qualifiedByName = "getSourceType ")
     TDataCenterMetadata metaDataToTDataCenterMetadata(Metadata metadata);
 
     @Mapping(source = "dataType",target = "dataType",qualifiedByName = "parseDataTypeEnumByJavaStrType")
     @Mapping(source = "sourceType",target = "sourceType",qualifiedByName = "parseSourceTypeEnumBySourceType")
     Metadata tDataCenterMetadataToMetadata(TDataCenterMetadata tDataCenterMetadata);
 
-    @Mapping(source = "dataType",target = "dataType",qualifiedByName = "parseDataTypeEnumByJavaStrType")
-    @Mapping(source = "sourceType",target = "sourceType",qualifiedByName = "parseSourceTypeEnumBySourceType")
     List<Metadata> tDataCenterMetadataToMetadata(List<TDataCenterMetadata> tDataCenterMetadatas);
 
     @Named("getDateType")

@@ -95,6 +95,7 @@ public class TDataCenterMetadata implements Serializable {
     /**
      * 排序字段
      */
+    @TableField("`rank`")
     private Integer rank;
 
     /**

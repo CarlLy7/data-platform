@@ -1,11 +1,4 @@
 package com.carl.collect;
-/**
- * @description:
- * @author: carl
- * @createDate: 2025-03-09 20:54
- * @version: 1.0
- */
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

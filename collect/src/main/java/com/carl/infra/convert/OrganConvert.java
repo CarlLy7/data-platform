@@ -1,9 +1,4 @@
-package com.carl.infra.convert;/**
- * @description:
- * @author: carl
- * @createDate: 2025-03-09 21:13
- * @version: 1.0
- */
+package com.carl.infra.convert;
 
 import com.carl.business.domain.Organ;
 import com.carl.collect.CollectWayEnum;
@@ -23,23 +18,23 @@ import java.util.List;
  */
 @Mapper
 public interface OrganConvert {
-    OrganConvert INSTANCE= Mappers.getMapper(OrganConvert.class);
-    @Mapping(source = "collectWay",target = "collectWay",qualifiedByName = "parseCollectWayEnumByValue")
+    OrganConvert INSTANCE = Mappers.getMapper(OrganConvert.class);
+
+    @Mapping(source = "collectWay", target = "collectWay", qualifiedByName = "parseCollectWayEnumByValue")
     Organ tDataCenterOrganToOrgan(TDataCenterOrgan tDataCenterOrgan);
 
-    @Mapping(source = "collectWay",target = "collectWay",qualifiedByName = "parseCollectWayEnumByValue")
     List<Organ> tDataCenterOrgansToOrgans(List<TDataCenterOrgan> tDataCenterOrgans);
 
-    @Mapping(source = "collectWay",target = "collectWay",qualifiedByName = "collectWayEnumToValue")
+    @Mapping(source = "collectWay", target = "collectWay", qualifiedByName = "collectWayEnumToValue")
     TDataCenterOrgan organToTDataCenterOrgan(Organ organ);
 
     @Named("collectWayEnumToValue")
-    default Integer collectWayEnumToValue(CollectWayEnum collectWayEnum){
+    default Integer collectWayEnumToValue(CollectWayEnum collectWayEnum) {
         return collectWayEnum.getValue();
     }
 
     @Named("parseCollectWayEnumByValue")
-    default CollectWayEnum parseCollectWayEnumByValue(Integer value){
+    default CollectWayEnum parseCollectWayEnumByValue(Integer value) {
         return CollectWayEnum.parse(value);
     }
 }
