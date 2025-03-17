@@ -20,7 +20,7 @@ public class MyDynamicDataSourceTest {
 
     @Test
     public void testAdd(){
-        myUserService.addUser("carl");
+        myUserService.addUser("carl2131232");
     }
 
     @Test
@@ -30,7 +30,7 @@ public class MyDynamicDataSourceTest {
 
     @Test
     public void testOrderAdd(){
-        myOrderService.addOrder("carl111");
+        myOrderService.addOrder("carl222");
     }
 
     @Test
